@@ -65,7 +65,7 @@ di client:
 di server:
 > nodemon app.js
 
-endpoint:
+USER endpoint:
 ```
 GET - get all users
 http://localhost:3000/users/
@@ -78,5 +78,20 @@ http://localhost:3000/users/
 
 DELETE - delete user
 http://localhost:3000/users/:id
+
+```
+PHOTO endpoint:
+```
+GET - get all photos
+http://localhost:3000/photo/
+
+POST - login
+http://localhost:3000/photo/login
+
+PUT - edit caption
+http://localhost:3000/photo/:id
+
+DELETE - delete photo
+http://localhost:3000/photo/:id
 
 ```

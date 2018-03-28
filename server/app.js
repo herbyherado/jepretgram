@@ -10,6 +10,7 @@ const dbURL = 'mongodb://localhost:27017/jepretgram';
 
 const index  = require('./routes/index')
 const user  = require('./routes/user')
+const photo  = require('./routes/photo')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
@@ -24,6 +25,7 @@ mongoose.connect(dbURL, err => {
 
 app.use('/', index)
 app.use('/user', user)
+app.use('/photo', photo)
 
 
 app.listen(port, () => {
