@@ -11,6 +11,7 @@ module.exports = {
       password: req.body.password,
     })
     .then(user => {
+      console.log(user)
       let token = jwt.sign({ username: user.username, id: user._id }, 'secret')
       res.status(200).json({
         message: 'New user created',
@@ -18,6 +19,7 @@ module.exports = {
       })
     })
     .catch(err => {
+      console.log('err')
       res.status(400).json({
         message: 'Unable to create user',
         err
@@ -66,6 +68,7 @@ module.exports = {
       let username = req.body.username
       let password = req.body.password
       let check = bcrypt.compareSync(password, profile.password)
+      console.log('masuk')
       if (check){
         let token = jwt.sign({ username: profile.username, id: profile._id }, 'secret')
         res.status(200).json({

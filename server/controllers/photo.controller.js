@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 module.exports = {
   create: function (req, res) {
     let decode = jwt.verify(req.headers.token, 'secret')
-    console.log(decode)
+    // console.log(decode)
     Photo.create({
       caption: req.body.caption,
       imageUrl: req.file.cloudStoragePublicUrl,
@@ -45,7 +45,7 @@ module.exports = {
   },
   editCaption: function (req, res) {
     let decode = jwt.verify(req.headers.token, 'secret')
-    console.log(decode)
+    // console.log(decode)
     Photo.findOneAndUpdate({ _id: req.params.id, user: decode.id} , {
       caption: req.body.caption
     })
@@ -65,7 +65,7 @@ module.exports = {
   },
   deletion: function (req, res) {
     let decode = jwt.verify(req.headers.token, 'secret')
-    console.log(decode)
+    // console.log(decode)
     Photo.findOneAndRemove({ _id: req.params.id, user: decode.id })
       .exec()
       .then(photo => {
