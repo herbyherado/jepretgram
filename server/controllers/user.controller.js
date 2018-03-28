@@ -46,7 +46,7 @@ module.exports = {
       .then(user => {
         res.status(200).json({
           message: 'user deleted',
-          users
+          user
         })
       })
       .catch(err => {
