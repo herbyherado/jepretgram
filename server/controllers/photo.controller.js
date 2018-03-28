@@ -80,5 +80,42 @@ module.exports = {
           err
         })
       })
+  },
+  like: function (req, res) {
+    let decode = jwt.verify(req.headers.token, 'secret')
+    Photo.findOne({_id: req.params.id})
+      .exec()
+      .then(photo => {
+        if (decode.id != photo.user){
+          let index = photo.like.indexOf(decode.id)
+          if (index === -1) {
+            photo.like.push(decode.id)
+            photo.save()
+            res.status(200).json({
+              message: 'photo liked',
+              photo
+            })
+          } else {
+            let del = photo.like.indexOf(decode.id)
+            photo.like.splice(del, 1)
+            photo.save()
+            res.status(200).json({
+              message: 'photo has been unliked',
+              photo
+            })
+          }
+        } else {
+          res.status(200).json({
+            message: 'cannot like own photo',
+            photo
+          })
+        }
+      })
+      .catch(err => {
+        res.status(400).json({
+          message: 'unable to like photo',
+          err
+        })
+      })
   }
 }

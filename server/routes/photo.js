@@ -16,6 +16,6 @@ router.get('/', photoController.getAllPhotos)
 router.post('/', authenticate, upload.single('image'), sendUploadToGCS, photoController.create)
 router.put('/:id', authenticate, photoController.editCaption)
 router.delete('/:id', authenticate, photoController.deletion)
-
+router.get('/like/:id', photoController.like)
 
 module.exports = router
