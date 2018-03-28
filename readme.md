@@ -94,4 +94,7 @@ http://localhost:3000/photo/:id
 DELETE - delete photo
 http://localhost:3000/photo/:id
 
+GET - like photo
+http://localhost:3000/photo/like/:id
+
 ```
