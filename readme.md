@@ -55,3 +55,28 @@ Penggunaan state management tidak diwajibkan tapi memiliki nilai tambah.
 Masih memiliki waktu tersisa? Silakan manfaatkan sisa waktu yang ada untuk melakukan refactor, periksa setiap line code yang kamu buat sebelumnya, dan lakukan optimasi jika kamu rasa ada yang bisa kamu tingkatkan lagi kualitas code nya.
 
 Kamu juga boleh menambahkan optional feature seperti comment pada photo, atau memperbaiki tampilan web app yang kamu buat supaya lebih menarik.
+
+
+### Release 0 & Release 1
+
+di client:
+> npm run dev
+
+di server:
+> nodemon app.js
+
+endpoint:
+```
+GET - get all users
+http://localhost:3000/users/
+
+POST - login
+http://localhost:3000/users/login
+
+POST - register user
+http://localhost:3000/users/
+
+DELETE - delete user
+http://localhost:3000/users/:id
+
+```
